@@ -63,8 +63,9 @@ def main():
        
     else:
         print(f'Found {len(filtered_connections)} connections matching your criteria:')
+        print('----------------------------------------------------------')
         for connection in filtered_connections:
-            print('-', f'{connection["First Name"]} {connection["Last Name"]} ({connection["Position"]} @{connection["Company"]}): {connection["URL"]}')
-
+            print(f'{connection["First Name"]} {connection["Last Name"]} ({connection["Position"]} @{connection["Company"]})\n{connection["URL"]}')
+            print('----------------------------------------------------------')
 if __name__ == '__main__':
     main()
