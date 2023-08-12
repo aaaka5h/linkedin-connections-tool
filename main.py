@@ -50,6 +50,7 @@ def filter_connections(company=None, position=None, days=None):
     
     return filtered_connections
 
+# Main
 def main():
     company = input('Enter company name (leave empty for any): ')
     position = input('Enter position keywords (leave empty for any): ')
