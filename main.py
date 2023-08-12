@@ -23,15 +23,15 @@ with open(data_path, 'r') as csv_file:
 
 # Helper functions
 def does_company_match(input, company):
-    if input.lower() == company.lower() or \
-        input.lower() == company.lower().split(' ')[0]:
+    if input.lower().strip() == company.lower() or \
+        input.lower().strip() == company.lower().split(' ')[0]:
         return True
     return False
 
 def does_position_match(keywords, role):
     keywords_arr = keywords.lower().split(' ')
     for word in role.lower().split(' '):
-        if word in keywords_arr:
+        if len(word.strip()) and word.strip() in keywords_arr:
             return True
     return False
 
