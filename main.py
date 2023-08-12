@@ -9,9 +9,7 @@ load_dotenv()
 # Access the spreadsheet
 data_path = os.getenv("DATA_PATH")
 
-if data_path:
-    print(f"Data path: {data_path}")
-else:
+if not data_path:
     print("Valid data path not found in .env file")
 
 # Read the spreadsheet
@@ -65,7 +63,7 @@ def main():
     else:
         print(f'Found {len(filtered_connections)} connections matching your criteria:')
         for connection in filtered_connections:
-            print('-', f'{connection["First Name"]} {connection["Last Name"]} ({connection["Company"]}): {connection["URL"]}')
+            print('-', f'{connection["First Name"]} {connection["Last Name"]} ({connection["Position"]} @{connection["Company"]}): {connection["URL"]}')
 
 if __name__ == '__main__':
     main()
