@@ -1,0 +1,19 @@
+# Data
+*.csv
+
+# Compiled Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Env
+venv/
+env/
+*.env
+
+# IDE
+.vscode/
+
+# Mac OS
+.DS_Store
