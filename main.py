@@ -52,20 +52,27 @@ def filter_connections(company=None, position=None, days=None):
 
 # Main
 def main():
-    company = input('Enter company name (leave empty for any): ')
-    position = input('Enter position keywords (leave empty for any): ')
-    days = input('Enter minimum days ago connected (leave empty for any): ')
-    
-    filtered_connections = filter_connections(company, position, days)
-    
-    if not filtered_connections:
-        print('No connections match the criteria.')
-       
-    else:
-        print(f'Found {len(filtered_connections)} connections matching your criteria:')
-        print('----------------------------------------------------------')
-        for connection in filtered_connections:
-            print(f'{connection["First Name"]} {connection["Last Name"]} ({connection["Position"]} @{connection["Company"]})\n{connection["URL"]}')
+    while(True):
+        company = input('Enter company name (leave empty for any, press q to quit): ')
+
+        if company.strip().lower() == 'q': os._exit(0)
+
+        position = input('Enter position keywords (leave empty for any): ')
+        days = input('Enter minimum days ago connected (leave empty for any): ')
+        
+        filtered_connections = filter_connections(company, position, days)
+        
+        if not filtered_connections:
+            print('No connections match the criteria.')
+        
+        else:
+            print('Searching...')
+            print(f'Found {len(filtered_connections)} connections matching your criteria:')
             print('----------------------------------------------------------')
+            for connection in filtered_connections:
+                print(f'{connection["First Name"]} {connection["Last Name"]} ({connection["Position"]} @{connection["Company"]})\n{connection["URL"]}')
+                print('----------------------------------------------------------')
+            print('\n')
+    
 if __name__ == '__main__':
     main()
